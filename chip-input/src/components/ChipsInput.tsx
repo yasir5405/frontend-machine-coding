@@ -18,7 +18,10 @@ const ChipsInput = () => {
 
   const handleSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && inputValue.trim() !== "") {
-      const newValue: IChips = { id: crypto.randomUUID(), name: inputValue };
+      const newValue: IChips = {
+        id: crypto.randomUUID(),
+        name: inputValue.trim(),
+      };
       const putValues = [...chips, newValue];
       localStorage.setItem("chips", JSON.stringify(putValues));
       setChips(putValues);
